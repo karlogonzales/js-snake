@@ -58,6 +58,7 @@ function Snake() {
                 this.tail = [];
                 this.x = 0;
                 this.y = 0;
+                score = 0;
             }
         }
     }

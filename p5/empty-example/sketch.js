@@ -2,26 +2,38 @@ var s;
 var speed = 1;
 var scl = 20;
 var food;
+var score = 0;
+
+
+
 
 function setup() {
     createCanvas(600, 600);
     s = new Snake();
     frameRate(10);
     pickLocation();
+
 }
 
 function draw() {
     background(51);
 
     if(s.eat(food)){
-      pickLocation()
-    };
+      pickLocation();
+        score++;
+    }
 
     s.death();
     s.update();
     s.show();
+
     fill(255,0,100);
     rect(food.x, food.y, scl, scl);
+
+
+    textSize(56);
+    textStyle(BOLD)
+    text(score, width/2, scl*4);
 }
 
 function pickLocation() {
