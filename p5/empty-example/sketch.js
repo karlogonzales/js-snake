@@ -12,9 +12,14 @@ function setup() {
 
 function draw() {
     background(51);
+
+    if(s.eat(food)){
+      pickLocation()
+    };
+
+    s.death();
     s.update();
     s.show();
-
     fill(255,0,100);
     rect(food.x, food.y, scl, scl);
 }
@@ -22,9 +27,8 @@ function draw() {
 function pickLocation() {
     var cols = floor(width/scl);
     var rows = floor(height/scl);
-    food = createVector(floor(random(cols)), floor(random(rows)));
+    food = this.createVector(floor(random(cols)), floor(random(rows)));
     food.mult(scl);
-    return food;
 }
 function keyPressed() {
     if (keyCode === UP_ARROW) {
